@@ -40,7 +40,7 @@ api.interceptors.response.use(
 
 // 认证相关API
 export const authAPI = {
-  login: (credentials) => api.post('/login', credentials), // 修正登录接口路径
+  login: (credentials) => api.post('/auth/login', credentials), // 修正登录接口路径
   logout: () => api.post('/logout'),
   getCurrentUser: () => api.get('/auth/me')
 }

@@ -96,7 +96,7 @@ import { newsAPI, adminAPI } from '../services/api'
 
 const router = useRouter()
 const openLoginModal = inject('openLoginModal', () => {
-  router.push('/login')
+  router.push('/auth/login')
 })
 
 // 新闻数据
