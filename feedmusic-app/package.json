@@ -1,0 +1,27 @@
+{
+  "name": "feedmusic-app",
+  "version": "1.0.0",
+  "description": "FeedMusic 单页应用",
+  "main": "src/main.js",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"node server/index.js\"",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "node server/index.js"
+  },
+  "keywords": ["feedmusic", "vue", "music"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "vue": "^3.4.31",
+    "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "concurrently": "^8.2.2",
+    "vite": "^5.2.11"
+  }
+}

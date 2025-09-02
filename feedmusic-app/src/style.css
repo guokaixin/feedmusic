@@ -1,0 +1,246 @@
+:root {
+  --primary-color: #000;
+  --secondary-color: #fff;
+  --text-color: #000;
+  --transition-speed: 0.8s;
+  --font-main: 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  overflow-x: hidden;
+  color: var(--text-color);
+}
+
+.page {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  transition: transform var(--transition-speed) ease-in-out;
+}
+
+/* 导航栏样式 */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-link {
+  /* 修改为白色文字 */
+  color: var(--secondary-color); 
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  /* 下划线也调整为白色 */
+  background-color: var(--secondary-color); 
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.auth-button {
+  background: transparent;
+  /* 按钮边框和文字改为白色 */
+  border: 1px solid var(--secondary-color); 
+  color: var(--secondary-color);
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+/* 滚动进度条 */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  /* 进度条颜色，可根据需求调整，这里先保持黑色示意 */
+  background-color: var(--text-color); 
+  z-index: 1001;
+  transition: width var(--transition-speed) ease-in-out;
+}
+
+/* 新闻页面样式 */
+.news-container {
+  padding: 120px 40px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .navbar {
+    padding: 15px 20px;
+  }
+  
+  .news-container {
+    padding: 100px 20px 40px;
+  }
+}
+
+/* 更多按钮 */
+.load-more {
+  display: block;
+  margin: 0 auto;
+  padding: 12px 24px;
+  background: transparent;
+  /* 按钮边框和文字颜色，根据整体风格，这里用白色边框+黑色文字示例，可调整 */
+  border: 1px solid var(--text-color); 
+  color: var(--text-color);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.load-more:hover {
+  background-color: var(--text-color);
+  color: var(--secondary-color);
+}
+
+/* 登录/注册模态框 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background-color: white;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 4px;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal {
+  transform: translateY(0);
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+  background-color: #333;
+}
+
+.modal-switch {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.modal-switch-button {
+  background: none;
+  border: none;
+  color: #0066cc;
+  cursor: pointer;
+  text-decoration: underline;
+}
