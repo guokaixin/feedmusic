@@ -185,9 +185,9 @@ const formatDate = (dateString) => {
   return date.toLocaleString()
 }
 
-// 跳转到新增新闻页面 - 确保此方法正确
+// 跳转到新增新闻页面
 const goToCreateNews = () => {
-  console.log('尝试跳转到创建新闻页面') // 用于调试
+  console.log('尝试跳转到创建新闻页面')
   router.push({ name: 'CreateNews' })
 }
 
@@ -228,12 +228,24 @@ onMounted(() => {
   width: 100%;
   box-sizing: border-box;
   min-height: calc(100vh - 180px);
+  /* 添加背景图样式 */
+  background-image: url('/assets/presentation-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  /* 添加半透明白色背景以确保内容可读性 */
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .page-header {
@@ -260,7 +272,7 @@ onMounted(() => {
 .auth-required, .loading-state, .error-state, .empty-state {
   text-align: center;
   padding: 4rem 2rem;
-  background-color: #f8f9fa;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
   margin-bottom: 2rem;
 }
